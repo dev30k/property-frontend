@@ -15,6 +15,7 @@ function App() {
               <Route path='/login' element={<Login />} />
               <Route path='/signup' element={<Signup />} />
              <Route element={<NavbarLayout />}>
+                 
                      <Route path="/dashboard"  element={<Dashboard />}/>
                      <Route path="/properties" element={<Properties />}/>
              </Route>
