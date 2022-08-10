@@ -28,7 +28,7 @@ function AddressVerification({ handleChange, values, prevStep, nextStep }) {
                   Property Type
                 </label>
                 <input
-                  className="appearance-none block w-full p-3 leading-5 text-coolGray-900 border border-coolGray-200 rounded-lg shadow-md placeholder-coolGray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50"
+                  className="appearance-none block w-full p-3 leading-5 text-coolGray-900 border border-coolGray-200 rounded-lg shadow-md placeholder-coolGray-400 focus:outline-none focus:ring-2 focus:text-color-primary "
                   type="name"
                   placeholder="Patryk"
                   defaultValue={values.type}
@@ -43,7 +43,7 @@ function AddressVerification({ handleChange, values, prevStep, nextStep }) {
                   Portfolio
                 </label>
                 <input
-                  className="appearance-none block w-full p-3 leading-5 text-coolGray-900 border border-coolGray-200 rounded-lg shadow-md placeholder-coolGray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50"
+                  className="appearance-none block w-full p-3 leading-5 text-coolGray-900 border border-coolGray-200 rounded-lg shadow-md placeholder-coolGray-400 focus:outline-none focus:ring-2 focus:text-color-primary "
                   type="name"
                   placeholder="Lemuria"
                   defaultValue={values.portfolio}
@@ -59,7 +59,8 @@ function AddressVerification({ handleChange, values, prevStep, nextStep }) {
                   Number of Units
                 </label>
                 <input
-                  className="appearance-none block w-full p-3 leading-5 text-coolGray-900 border border-coolGray-200 rounded-lg shadow-md placeholder-coolGray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50"
+                  className="appearance-none block w-full p-3 leading-5 text-coolGray-900 border border-coolGray-200
+                  rounded-lg shadow-md placeholder-coolGray-400 focus:outline-none focus:ring-2 focus:text-color-primary "
                   type="number"
                   placeholder="Unit 1, Apartment"
                   defaultValue={values.numberUnits}
@@ -76,7 +77,7 @@ function AddressVerification({ handleChange, values, prevStep, nextStep }) {
                 <div className="flex p-6 items-center justify-center border-dashed border-2 h-52 border-coolGray-200 rounded-lg text-coolGray-300">
                   <div className="max-w-max text-center">
                     <a
-                      className="inline-block mb-4 text-indigo-500 hover:text-green-600"
+                      className="inline-block mb-4 text-color-primary hover:text-color-secondary"
                       href="#"
                     >
                       <svg
@@ -97,7 +98,7 @@ function AddressVerification({ handleChange, values, prevStep, nextStep }) {
                         Drag and drop an image, or
                       </span>
                       <a
-                        className="text-indigo-500 hover:text-green-600"
+                        className="text-color-primary hover:text-color-secondary"
                         href="#"
                       >
                         Browse
@@ -111,14 +112,14 @@ function AddressVerification({ handleChange, values, prevStep, nextStep }) {
               </div>
 
               <button
-                className="inline-block py-3 px-7 mb-4 w-full text-base text-green-50 font-medium text-center leading-6 bg-indigo-500 hover:bg-indigo-600 rounded-md shadow-sm"
+                className="inline-block py-3 px-7 mb-4 w-full text-base text-green-50 font-medium text-center leading-6 bg-color-primary hover:bg-color-secondary rounded-md shadow-sm"
                 onClick={Back}
               >
                 Back
               </button>
 
               <button
-                className="inline-block py-3 px-7 mb-4 w-full text-base text-green-50 font-medium text-center leading-6 bg-indigo-500 hover:bg-indigo-600 rounded-md shadow-sm"
+                className="inline-block py-3 px-7 mb-4 w-full text-base text-green-50 font-medium text-center leading-6 bg-color-primary hover:bg-color-secondary rounded-md shadow-sm"
                 onClick={Continue}
               >
                 Complete

@@ -25,7 +25,7 @@ function AddressDetails({ handleChange, values, nextStep }) {
                   Property Name
                 </label>
                 <input
-                  className="appearance-none block w-full p-3 leading-5 text-coolGray-900 border border-coolGray-200 rounded-lg shadow-md placeholder-coolGray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50"
+                  className="appearance-none block w-full p-3 leading-5 text-coolGray-900 border border-coolGray-200 rounded-lg shadow-md placeholder-coolGray-400 focus:outline-none focus:ring-2 focus:ring-color-main focus:ring-opacity-50"
                   type="name"
                   placeholder="Patryk"
                   defaultValue={values.name}
@@ -40,7 +40,7 @@ function AddressDetails({ handleChange, values, nextStep }) {
                   Address
                 </label>
                 <input
-                  className="appearance-none block w-full p-3 leading-5 text-coolGray-900 border border-coolGray-200 rounded-lg shadow-md placeholder-coolGray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50"
+                  className="appearance-none block w-full p-3 leading-5 text-coolGray-900 border border-coolGray-200 rounded-lg shadow-md placeholder-coolGray-400 focus:outline-none focus:ring-2 focus:ring-color-main focus:ring-opacity-50"
                   type="name"
                   placeholder="Lemuria"
                   defaultValue={values.address}
@@ -56,7 +56,7 @@ function AddressDetails({ handleChange, values, nextStep }) {
                   Unit
                 </label>
                 <input
-                  className="appearance-none block w-full p-3 leading-5 text-coolGray-900 border border-coolGray-200 rounded-lg shadow-md placeholder-coolGray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50"
+                  className="appearance-none block w-full p-3 leading-5 text-coolGray-900 border border-coolGray-200 rounded-lg shadow-md placeholder-coolGray-400 focus:outline-none focus:ring-2 focus:ring-color-main focus:ring-opacity-50"
                   type="name"
                   placeholder="Unit 1, Apartment"
                   defaultValue={values.unit}
@@ -72,7 +72,7 @@ function AddressDetails({ handleChange, values, nextStep }) {
                   City
                 </label>
                 <input
-                  className="appearance-none block w-full p-3 leading-5 text-coolGray-900 border border-coolGray-200 rounded-lg shadow-md placeholder-coolGray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50"
+                  className="appearance-none block w-full p-3 leading-5 text-coolGray-900 border border-coolGray-200 rounded-lg shadow-md placeholder-coolGray-400 focus:outline-none focus:ring-2 focus:ring-color-main focus:ring-opacity-50"
                   type="name"
                   placeholder="Nairobi"
                   defaultValue={values.city}
@@ -87,7 +87,7 @@ function AddressDetails({ handleChange, values, nextStep }) {
                   County
                 </label>
                 <input
-                  className="appearance-none block w-full p-3 leading-5 text-coolGray-900 border border-coolGray-200 rounded-lg shadow-md placeholder-coolGray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50"
+                  className="appearance-none block w-full p-3 leading-5 text-coolGray-900 border border-coolGray-200 rounded-lg shadow-md placeholder-coolGray-400 focus:outline-none focus:ring-2 focus:ring-color-main focus:ring-opacity-50"
                   type="name"
                   placeholder="Nairobi"
                   defaultValue={values.county}
@@ -102,7 +102,7 @@ function AddressDetails({ handleChange, values, nextStep }) {
                   Zipcode
                 </label>
                 <input
-                  className="appearance-none block w-full p-3 leading-5 text-coolGray-900 border border-coolGray-200 rounded-lg shadow-md placeholder-coolGray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50"
+                  className="appearance-none block w-full p-3 leading-5 text-coolGray-900 border border-coolGray-200 rounded-lg shadow-md placeholder-coolGray-400 focus:outline-none focus:ring-2 focus:ring-color-main focus:ring-opacity-50"
                   type="number"
                   placeholder="00000"
                   defaultValue={values.zipcode}
@@ -111,7 +111,7 @@ function AddressDetails({ handleChange, values, nextStep }) {
               </div>
 
               <button
-                className="inline-block py-3 px-7 mb-4 w-full text-base text-green-50 font-medium text-center leading-6 bg-indigo-500 hover:bg-indigo-600 rounded-md shadow-sm"
+                className="inline-block py-3 px-7 mb-4 w-full text-base text-green-50 font-medium text-center leading-6 bg-color-primary hover:bg-color-secondary rounded-md shadow-sm"
                 onClick={Continue}
               >
                 Next
