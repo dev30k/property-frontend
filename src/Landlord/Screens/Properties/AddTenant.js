@@ -28,7 +28,7 @@ function AddTenant(props) {
     setFormvalues(newFormValues);
   };
   return (
-    <div className="mx-auto lg:ml-80">
+    <div className="mx-auto lg:ml-80 m-auto">
       <section className="bg-coolGray-50 py-4">
         <div className="container px-4 mx-auto">
           <div className="p-6 h-full border border-coolGray-100 overflow-hidden bg-white rounded-md shadow-dashboard">
@@ -50,9 +50,12 @@ function AddTenant(props) {
                       </button>
                     </div>
                     <div className="w-full md:w-auto p-1.5">
-                      <button className="flex flex-wrap justify-center w-full px-4 py-2 bg-indigo-500 hover:bg-green-600 font-medium text-sm text-white border border-indigo-500 rounded-md shadow-button">
-                        <p>Save</p>
-                      </button>
+                      <a
+                        href="/properties/id/add/1"
+                        className="flex flex-wrap justify-center w-full px-4 py-2 bg-color-primary hover:bg-color-secondary font-medium text-sm text-white border border-color-primary rounded-md shadow-button"
+                      >
+                        <p>Proceed</p>
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -72,7 +75,7 @@ function AddTenant(props) {
                     </label>
                     <DatePicker
                       placeholder="Start Date"
-                      className="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-indigo-500 border border-coolGray-200 rounded-lg shadow-input"
+                      className="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-color-primary border border-coolGray-200 rounded-lg shadow-input"
                       selected={startDate}
                       onChange={(date) => setStartDate(date)}
                     />
@@ -83,7 +86,7 @@ function AddTenant(props) {
                       End Date
                     </label>
                     <DatePicker
-                      className="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-indigo-500 border border-coolGray-200 rounded-lg shadow-input"
+                      className="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-color-primary border border-coolGray-200 rounded-lg shadow-input"
                       selected={endDate}
                       onChange={(date) => setEndDate(date)}
                     />
@@ -112,7 +115,7 @@ function AddTenant(props) {
                     </label>
                     <select
                       id="countries"
-                      className=" bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-indigo-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-indigo-500 dark:focus:border-indigo-500"
+                      className=" bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-color-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-color-primary dark:focus:border-color-primary"
                     >
                       <option selected>Choose a payment option</option>
                       <option value="1">1st day of month</option>
@@ -126,7 +129,7 @@ function AddTenant(props) {
                       Amount
                     </label>
                     <input
-                      className="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-indigo-500 border border-coolGray-200 rounded-lg shadow-input"
+                      className="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-color-primary border border-coolGray-200 rounded-lg shadow-input"
                       type="text"
                       placeholder="50000"
                     />
@@ -152,7 +155,7 @@ function AddTenant(props) {
                               Description
                             </label>
                             <input
-                              className="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-indigo-500 border border-coolGray-200 rounded-lg shadow-input"
+                              className="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-color-primary border border-coolGray-200 rounded-lg shadow-input"
                               type="text"
                               placeholder="Service charge"
                               value={element.description || ""}
@@ -164,7 +167,7 @@ function AddTenant(props) {
                               Amount
                             </label>
                             <input
-                              className="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-indigo-500 border border-coolGray-200 rounded-lg shadow-input"
+                              className="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-color-primary border border-coolGray-200 rounded-lg shadow-input"
                               type="text"
                               placeholder="5000"
                               value={element.amount || ""}
@@ -175,7 +178,7 @@ function AddTenant(props) {
                             {!index ? (
                               <SiAddthis
                                 size={24}
-                                color="indigo"
+                                color="#2C3333"
                                 className="mt-8 "
                                 onClick={addFormFields}
                               />
@@ -184,7 +187,7 @@ function AddTenant(props) {
                               <MdCancel
                                 size={24}
                                 className="mt-8"
-                                color="indigo"
+                                color="#2C3333"
                                 onClick={removeFormFields}
                               />
                             ) : null}
@@ -208,7 +211,7 @@ function AddTenant(props) {
                     <label className="ml-2">
                       <input
                         type="checkbox"
-                        className="accent-indigo-500"
+                        className="accent-color-primary"
                         defaultChecked={checked}
                         onChange={() => setChecked(!checked)}
                       />{" "}
@@ -221,7 +224,7 @@ function AddTenant(props) {
                             Amount
                           </label>
                           <input
-                            className="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-indigo-500 border border-coolGray-200 rounded-lg shadow-input"
+                            className="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-color-primary border border-coolGray-200 rounded-lg shadow-input"
                             type="text"
                             placeholder="50"
                           />
@@ -232,7 +235,7 @@ function AddTenant(props) {
                           </label>
                           <select
                             id="countries"
-                            className=" bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-indigo-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-indigo-500 dark:focus:border-indigo-500"
+                            className=" bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-color-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-color-primary dark:focus:border-color-primary"
                           >
                             <option selected>Choose default option</option>
                             <option value="1">2st day of month</option>
@@ -243,7 +246,7 @@ function AddTenant(props) {
                       </div>
                     )}
                     <label className="ml-2 mt-2">
-                      <input type="checkbox" className="accent-indigo-500" />{" "}
+                      <input type="checkbox" className="accent-color-primary" />{" "}
                       Enable partial payments
                     </label>
                   </div>
