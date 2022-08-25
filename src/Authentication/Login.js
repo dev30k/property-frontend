@@ -1,8 +1,11 @@
-import React from "react";
+import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-function Login(props) {
+const Login = () => {
+
+
   return (
+
     <section className="py-24 md:py-32 bg-white">
       <div className="container px-4 mx-auto">
         <div className="max-w-sm mx-auto">
@@ -11,7 +14,7 @@ function Login(props) {
               Welcome back
             </h3>
           </div>
-          <form action="">
+          <form >
             <div className="mb-6">
               <label
                 className="block mb-2 text-coolGray-800 font-medium"
@@ -21,8 +24,10 @@ function Login(props) {
               </label>
               <input
                 className="appearance-none block w-full p-3 leading-5 text-coolGray-900 border border-coolGray-200 rounded-lg shadow-md placeholder-coolGray-400 focus:outline-none focus:ring-2 focus:ring-color-main focus:ring-opacity-50"
-                type="name"
-                placeholder="dev@shuffle.dev"
+                type="username"
+                name="username"
+                autocomplete="off"
+                required
               />
             </div>
             <div className="mb-4">
@@ -35,7 +40,9 @@ function Login(props) {
               <input
                 className="appearance-none block w-full p-3 leading-5 text-coolGray-900 border border-coolGray-200 rounded-lg shadow-md placeholder-coolGray-400 focus:outline-none focus:ring-2 focus:ring-color-main focus:ring-opacity-50"
                 type="password"
-                placeholder="************"
+                name="password"
+                autocomplete="off"
+                required
               />
             </div>
             <div className="flex flex-wrap items-center justify-between mb-6">
@@ -48,7 +55,9 @@ function Login(props) {
                 </a>
               </div>
             </div>
-            <button className="inline-block py-3 px-7 mb-4 w-full bg-color-primary text-base text-white font-medium text-center leading-ring-color-main hover:bg-color-secondary focus:ring-2 focus:ring-color-main focus:ring-opacity-50 rounded-md shadow-sm">
+            <button className="inline-block py-3 px-7 mb-4 w-full bg-color-primary text-base text-white font-medium text-center leading-ring-color-main hover:bg-color-secondary focus:ring-2 focus:ring-color-main focus:ring-opacity-50 rounded-md shadow-sm"
+
+            >
               Sign In
             </button>
 
@@ -68,6 +77,8 @@ function Login(props) {
       </div>
     </section>
   );
+
+
 }
 
 export default Login;
