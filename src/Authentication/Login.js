@@ -1,8 +1,27 @@
-import React, { Component } from "react";
+import React, { Component, useRef } from "react";
 import { Link } from "react-router-dom";
 
 const Login = () => {
 
+  const usernameRef = useRef();
+  const passwordRef = useRef();
+  const submitHandler = (event) => {
+    event.preventDefault();
+    const enteredUsername = usernameRef.current.value;
+    const enteredPassword = passwordRef.current.value;
+    fetch(
+      {
+        method: "POST",
+        body: JSON.stringify({
+          username: enteredUsername,
+          password: enteredPassword,
+        }),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }
+    )
+  }
 
   return (
 
@@ -14,7 +33,7 @@ const Login = () => {
               Welcome back
             </h3>
           </div>
-          <form >
+          <form onSubmit={submitHandler}>
             <div className="mb-6">
               <label
                 className="block mb-2 text-coolGray-800 font-medium"
@@ -28,6 +47,7 @@ const Login = () => {
                 name="username"
                 autocomplete="off"
                 required
+                ref={usernameRef}
               />
             </div>
             <div className="mb-4">
@@ -43,6 +63,7 @@ const Login = () => {
                 name="password"
                 autocomplete="off"
                 required
+                ref={passwordRef}
               />
             </div>
             <div className="flex flex-wrap items-center justify-between mb-6">
