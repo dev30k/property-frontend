@@ -1,17 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
-import {
-  Link,
-  useNavigate,
-  useLocation,
-  Navigate,
-  Outlet
-} from "react-router-dom";
-
 import PrivateRoutes from "./utils/PrivateRoutes";
-import AuthProvider from "./context/AuthProvider";
-
 
 import Home from "./Home/Home";
 
@@ -38,32 +28,29 @@ import Applicants from "./Landlord/Screens/Applicants/Applicants";
 
 function App() {
   return (
-    <AuthProvider>
-      <Router>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route element={<PrivateRoutes />}>
-            <Route element={<NavbarLayout />}>
-              <Route path="/dashboard" element={<Dashboard />} />
-              <Route path="/properties" element={<Properties />} />
-              <Route path="/properties/id" element={<PropertyDetails />} />
-              <Route path="/properties/id/add" element={<AddTenant />} />
-              <Route path="/properties/id/add/1" element={<NewTenants />} />
-              <Route path="/settings" element={<Settings />} />
-              <Route path="/finances" element={<Finances />} />
-              <Route path="/reports" element={<Reports />} />
-              <Route path="/applicants" element={<Applicants />} />
-              <Route path="/notifications" element={<Notifications />} />
-              <Route path="/maintenance" element={<Maintenance />} />
-              <Route path="/cloud-documents" element={<Document />} />
-            </Route>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route element={<PrivateRoutes />}>
+          <Route element={<NavbarLayout />}>
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/properties" element={<Properties />} />
+            <Route path="/properties/id" element={<PropertyDetails />} />
+            <Route path="/properties/id/add" element={<AddTenant />} />
+            <Route path="/properties/id/add/1" element={<NewTenants />} />
+            <Route path="/settings" element={<Settings />} />
+            <Route path="/finances" element={<Finances />} />
+            <Route path="/reports" element={<Reports />} />
+            <Route path="/applicants" element={<Applicants />} />
+            <Route path="/notifications" element={<Notifications />} />
+            <Route path="/maintenance" element={<Maintenance />} />
+            <Route path="/cloud-documents" element={<Document />} />
           </Route>
-        </Routes>
-      </Router>
-    </AuthProvider>
-
+        </Route>
+      </Routes>
+    </Router>
   );
 }
 
