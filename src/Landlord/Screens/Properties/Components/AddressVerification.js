@@ -1,22 +1,24 @@
 import React from "react";
 
 function AddressVerification({ handleChange, values, prevStep, nextStep }) {
+
   const Continue = (e) => {
     e.preventDefault();
     nextStep();
   };
+
   const Back = (e) => {
     e.preventDefault();
     prevStep();
   };
   return (
-    <div className="">
+    <div className="m-auto lg:ml-80">
       <section className="py-8 md:py-8 bg-white">
         <div className="container px-4 mx-auto">
           <div className="max-w-sm mx-auto">
             <div className="mb-6 text-center">
-              <h3 className="mb-4 text-2xl md:text-3xl font-bold">
-                Almost there!
+              <h3 className="mb-4 text-xl md:text-1xl font-bold">
+                Add more details
               </h3>
             </div>
             <form action="">
@@ -27,28 +29,19 @@ function AddressVerification({ handleChange, values, prevStep, nextStep }) {
                 >
                   Property Type
                 </label>
-                <input
-                  className="appearance-none block w-full p-3 leading-5 text-coolGray-900 border border-coolGray-200 rounded-lg shadow-md placeholder-coolGray-400 focus:outline-none focus:ring-2 focus:text-color-primary "
-                  type="name"
-                  placeholder="Patryk"
-                  defaultValue={values.type}
-                  onChange={handleChange.bind("type")}
-                />
-              </div>
-              <div className="mb-6">
-                <label
-                  className="block mb-2 text-coolGray-800 font-medium"
-                  htmlFor=""
-                >
-                  Portfolio
-                </label>
-                <input
-                  className="appearance-none block w-full p-3 leading-5 text-coolGray-900 border border-coolGray-200 rounded-lg shadow-md placeholder-coolGray-400 focus:outline-none focus:ring-2 focus:text-color-primary "
-                  type="name"
-                  placeholder="Lemuria"
-                  defaultValue={values.portfolio}
-                  onChange={handleChange.bind("portfolio")}
-                />
+                <select
+                    className="appearance-none block w-full p-3 leading-5 bg-white text-coolGray-900 border border-coolGray-200 rounded-lg shadow-md placeholder-white focus:outline-none focus:ring-2 focus:text-color-primary "
+
+
+                    defaultValue={values.type}
+                    onChange={handleChange.bind("type")}
+
+                ><option selected>Select Type</option>
+                  <option value="0">Residential</option>
+                  <option value="1">Commercial</option>
+
+                </select>
+
               </div>
 
               <div className="mb-6">
@@ -56,16 +49,23 @@ function AddressVerification({ handleChange, values, prevStep, nextStep }) {
                   className="block mb-2 text-coolGray-800 font-medium"
                   htmlFor=""
                 >
-                  Number of Units
+                  Types of Property
                 </label>
-                <input
-                  className="appearance-none block w-full p-3 leading-5 text-coolGray-900 border border-coolGray-200
-                  rounded-lg shadow-md placeholder-coolGray-400 focus:outline-none focus:ring-2 focus:text-color-primary "
-                  type="number"
-                  placeholder="Unit 1, Apartment"
-                  defaultValue={values.numberUnits}
-                  onChange={handleChange.bind("numberUnits")}
-                />
+                <select
+                    className="appearance-none block w-full p-3 leading-5 bg-white text-coolGray-900 border border-coolGray-200 rounded-lg shadow-md placeholder-white focus:outline-none focus:ring-2 focus:text-color-primary "
+
+
+                    defaultValue={values.specifictype}
+                    onChange={handleChange.bind("specifictype")}
+
+                ><option selected>Select Type</option>
+                  <option value="0">Townhouses</option>
+                  <option value="1">Apartments</option>
+                  <option value="0">Condos</option>
+
+                </select>
+
+
               </div>
               <div className="mb-8">
                 <label
@@ -107,7 +107,9 @@ function AddressVerification({ handleChange, values, prevStep, nextStep }) {
                     <span className="text-sm text-coolGray-300 font-medium">
                       High resolution images (png, jpg, gif)
                     </span>
+
                   </div>
+
                 </div>
               </div>
 
@@ -122,7 +124,7 @@ function AddressVerification({ handleChange, values, prevStep, nextStep }) {
                 className="inline-block py-3 px-7 mb-4 w-full text-base text-green-50 font-medium text-center leading-6 bg-color-primary hover:bg-color-secondary rounded-md shadow-sm"
                 onClick={Continue}
               >
-                Complete
+               Next
               </button>
             </form>
           </div>

@@ -2,7 +2,7 @@ import React from "react";
 
 function Success({ message }) {
   return (
-    <section className="bg-coolGray-50 ">
+    <section className="bg-coolGray-50 m-auto lg:ml-80">
       <div className="container px-4 mx-auto">
         <div className="p-6 bg-green-100 border border-green-200 rounded-md">
           <div className="flex flex-wrap justify-between items-center -m-2">

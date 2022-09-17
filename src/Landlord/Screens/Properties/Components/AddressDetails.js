@@ -7,13 +7,14 @@ function AddressDetails({ handleChange, values, nextStep }) {
     nextStep();
   };
   return (
-    <div className="">
+    <div className="m-auto lg:ml-80">
+
       <section className="py-8 md:py-8 bg-white">
         <div className="container px-4 mx-auto">
           <div className="max-w-sm mx-auto">
             <div className="mb-6 text-center">
-              <h3 className="mb-4 text-2xl md:text-3xl font-bold">
-                Add Property
+              <h3 className="mb-4 text-xl md:text-1xl font-bold">
+                Lets begin by adding a property
               </h3>
             </div>
             <form action="">
@@ -48,21 +49,6 @@ function AddressDetails({ handleChange, values, nextStep }) {
                 />
               </div>
 
-              <div className="mb-6">
-                <label
-                  className="block mb-2 text-coolGray-800 font-medium"
-                  htmlFor=""
-                >
-                  Unit
-                </label>
-                <input
-                  className="appearance-none block w-full p-3 leading-5 text-coolGray-900 border border-coolGray-200 rounded-lg shadow-md placeholder-coolGray-400 focus:outline-none focus:ring-2 focus:ring-color-main focus:ring-opacity-50"
-                  type="name"
-                  placeholder="Unit 1, Apartment"
-                  defaultValue={values.unit}
-                  onChange={handleChange.bind("unit")}
-                />
-              </div>
 
               <div className="mb-4">
                 <label
@@ -111,7 +97,9 @@ function AddressDetails({ handleChange, values, nextStep }) {
               </div>
 
               <button
-                className="inline-block py-3 px-7 mb-4 w-full text-base text-green-50 font-medium text-center leading-6 bg-color-primary hover:bg-color-secondary rounded-md shadow-sm"
+                className="inline-block py-3 px-7 mb-4 w-full text-base
+                text-green-50 font-medium text-center
+                leading-6 bg-color-primary hover:bg-color-secondary rounded-md shadow-sm"
                 onClick={Continue}
               >
                 Next
