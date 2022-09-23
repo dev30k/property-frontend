@@ -8,6 +8,7 @@ export default class AddProperty extends Component {
     super(props);
     this.state = {
       step: 1,
+      loading:false,
       name:"",
       address: "",
       county:"",
@@ -17,6 +18,46 @@ export default class AddProperty extends Component {
       specifictype: "",
       formValues:[{beds:"",rent:"",numUnits:0,squarefeet:""}]
     };
+  }
+  submitInformation =(event)=>{
+    this.setState({loading:true});
+  
+    event.preventDefault();
+    fetch(
+        'http://127.0.0.1:8000/property/api/v1/appProperty/',
+        {
+          method:"POST",
+          body:JSON.stringify({
+            property_name:this.state.name,
+            address:this.state.address,
+            county:this.state.county,
+            city:this.state.city,
+            zipcode:this.state.zipcode,
+            property_type:this.state.type
+
+
+          }),
+          headers: {
+            'Content-Type': 'application/json'
+        }
+        }
+    ).then((res)=>{
+      console.log(res);
+      this.setState({loading:false});
+      if (res.ok){
+        return res.json();
+      }else{
+        return res.json.then((data) =>{
+          throw new Error(data);
+        })
+      }
+    }).then(data =>{
+      console.log(data);
+      const { step } = this.state;
+      this.setState({ step: step + 1 });
+
+    })
+
   }
   handleFormChange(i, e) {
     let formValues = this.state.formValues;
@@ -76,7 +117,7 @@ export default class AddProperty extends Component {
       case 1:
         return (
           <AddressDetails
-            nextStep={this.nextStep}
+            nextStep={this.submitInformation}
             handleChange={this.handleChange}
             values={values}
           />

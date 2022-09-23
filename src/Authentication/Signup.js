@@ -29,7 +29,9 @@ const Signup = () => {
         setIsLoading(true);
         fetch(
             'http://127.0.0.1:8000/users/api/v1/signup/',
+            
             {
+                
                 method: "POST",
                 body: JSON.stringify({
                     first_name: enteredFirstName,
