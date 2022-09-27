@@ -1,6 +1,6 @@
 import React from "react";
 
-function AddressVerification({ handleChange, values, prevStep, nextStep }) {
+function AddressVerification({ handleInputChange, values, prevStep, nextStep }) {
 
   const Continue = (e) => {
     e.preventDefault();
@@ -34,7 +34,7 @@ function AddressVerification({ handleChange, values, prevStep, nextStep }) {
 
 
                     defaultValue={values.type}
-                    onChange={handleChange("type")}
+                    onChange={(e) => handleInputChange(e,"type")}
 
                 ><option selected>Select Type</option>
                   <option value="R">Residential</option>
@@ -56,7 +56,7 @@ function AddressVerification({ handleChange, values, prevStep, nextStep }) {
 
 
                     defaultValue={values.specifictype}
-                    onChange={handleChange.bind("specifictype")}
+                    onChange={(e) => handleInputChange(e,"specifictype")}
 
                 ><option selected>Select Type</option>
                   <option value="0">Townhouses</option>

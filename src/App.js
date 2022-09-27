@@ -18,6 +18,7 @@ import Maintenance from "./Landlord/Screens/Maintenance/Maintenance";
 import Document from "./Landlord/Screens/Documents/Document";
 import Applicants from "./Landlord/Screens/Applicants/Applicants";
 import AddProperty from "./Landlord/Screens/Properties/AddProperty";
+import AddProp from "./Landlord/Screens/Properties/AddProp";
 
 
 function App() {
@@ -31,7 +32,7 @@ function App() {
           <Route element={<NavbarLayout />}>
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/properties" element={<Properties />} />
-            <Route path="/properties/addNew" element={<AddProperty />} />
+            <Route path="/properties/addNew" element={<AddProp />} />
             <Route path="/properties/id" element={<PropertyDetails />} />
             <Route path="/properties/id/add" element={<AddTenant />} />
             <Route path="/properties/id/add/1" element={<NewTenants />} />
