@@ -3,73 +3,105 @@ import AddressDetails from "./Components/AddressDetails";
 import AddressVerification from "./Components/AddressVerification";
 import Success from "../../../Components/Success";
 import PropertyType from "./Components/PropertyType";
+import axios from "axios";
+
 export default class AddProperty extends Component {
   constructor(props) {
     super(props);
     this.state = {
       step: 1,
-      loading:false,
-      name:"",
+      propertyID: 0,
+      responseMessage: "",
+      loading: false,
+      name: "",
       address: "",
-      county:"",
+      county: "",
       city: "",
       zipcode: "",
       type: "",
       specifictype: "",
-      formValues:[{beds:"",rent:"",numUnits:0,squarefeet:""}]
+      formValues: [{ numUnits:"",rent:"",square_feet:"",beds:""}],
     };
   }
-  submitInformation =(event)=>{
-    this.setState({loading:true});
-  
-    event.preventDefault();
-    fetch(
-        'http://127.0.0.1:8000/property/api/v1/appProperty/',
+  getandSend = () => {
+    const headers = {
+      "Content-Type": "application/json",
+      Authorization:
+        "Token " + JSON.stringify(localStorage.getItem("token")).slice(1, -1),
+    };
+    axios.post(
+      "http://127.0.0.1:8000/property/api/v1/addProperty/residential/",
+      [
         {
-          method:"POST",
-          body:JSON.stringify({
-            property_name:this.state.name,
-            address:this.state.address,
-            county:this.state.county,
-            city:this.state.city,
-            zipcode:this.state.zipcode,
-            property_type:this.state.type
+          unit_type: "two",
+          market_rent: this.state.formValues.rent,
+          beds: 12,
+          square_feet: 12121,
+          number_of_units: 1212,
+          property: this.state.propertyID,
+        },
+        {
+          unit_type: "three",
+          market_rent: 21212322,
+          beds: 12323,
+          square_feet: 121213223,
+          number_of_units: 1212323,
+          property: this.state.propertyID,
+        },
+      ],
+      { headers: headers }
+    );
+  };
+  sendProperties = () => {
+    const headers = {
+      "Content-Type": "application/json",
+      Authorization:
+        "Token " + JSON.stringify(localStorage.getItem("token")).slice(1, -1),
+    };
+    axios
+      .post(
+        "http://127.0.0.1:8000/property/api/v1/addProperty/",
+        {
+          property_name: this.state.name,
+          address: this.state.address,
+          county: this.state.county,
+          city: this.state.city,
+          zipcode: this.state.zipcode,
+          property_type: this.state.type,
+        },
+        { headers: headers }
+      )
+      .then((response) => {
+        alert(response.data.status);
+        alert(response.data.property);
 
-
-          }),
-          headers: {
-            'Content-Type': 'application/json'
+        if (response.status == 200) {
+          this.setState({ responseMessage: response.data.message });
+          this.setState({ propertyID: response.data.property });
+          const { step } = this.state;
+          this.setState({ step: step + 1 });
+        } else {
+          alert("Error occured try again");
         }
-        }
-    ).then((res)=>{
-      console.log(res);
-      this.setState({loading:false});
-      if (res.ok){
-        return res.json();
-      }else{
-        return res.json.then((data) =>{
-          throw new Error(data);
-        })
-      }
-    }).then(data =>{
-      console.log(data);
-      const { step } = this.state;
-      this.setState({ step: step + 1 });
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
 
-    })
-
-  }
   handleFormChange(i, e) {
     let formValues = this.state.formValues;
     formValues[i][e.target.name] = e.target.value;
     this.setState({ formValues });
   }
-
   addFormFields() {
     console.log("EXECUTING THE ADD FIELDS");
     this.setState({
-      formValues: [...this.state.formValues, { beds:"",rent:"",numUnits:0,squarefeet:""}]
-    })
+      formValues: [
+        ...this.state.formValues,
+        { beds: 0, rent: 0, numUnits: 0, squarefeet: 0 },
+      ],
+    });
   }
 
   removeFormFields(i) {
@@ -89,9 +121,8 @@ export default class AddProperty extends Component {
     this.setState({ [input]: e.target.value });
   };
 
-
   render() {
-    const { step } = this.state;
+    const { formValues } = this.state;
     const {
       address,
       name,
@@ -100,7 +131,8 @@ export default class AddProperty extends Component {
       county,
       zipcode,
       type,
-      formValues,
+      step,
+      responseMessage,
     } = this.state;
     const values = {
       address,
@@ -110,14 +142,14 @@ export default class AddProperty extends Component {
       zipcode,
       type,
       county,
-      formValues
-    } ;
+      responseMessage,
+    };
 
     switch (step) {
       case 1:
         return (
           <AddressDetails
-            nextStep={this.submitInformation}
+            nextStep={this.nextStep}
             handleChange={this.handleChange}
             values={values}
           />
@@ -126,28 +158,25 @@ export default class AddProperty extends Component {
       case 2:
         return (
           <AddressVerification
-            nextStep={this.nextStep}
+            nextStep={this.sendProperties}
             handleChange={this.handleChange}
             prevStep={this.prevStep}
             values={values}
           />
         );
       case 3:
-        return(
-            <PropertyType
-                values={values}
-                add={this.addFormFields.bind(this)}
-                remove = {this.removeFormFields.bind(this)}
-                handleChange={this.handleFormChange}
-                prevStep={this.prevStep}
-                nextStep={this.nextStep}
-
-            />
-        )
+        return (
+          <PropertyType
+            values={formValues}
+            add={this.addFormFields.bind(this)}
+            remove={this.removeFormFields.bind(this)}
+            handleChange={this.handleFormChange.bind(this)}
+            prevStep={this.prevStep}
+            nextStep={this.getandSend}
+          />
+        );
       case 4:
-        return(
-            <Success message={"DONE"} />
-        )
+        return <Success message={"DONE"} />;
 
       default:
     }

@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 function AddressDetails({ handleChange, values, nextStep }) {
   const Continue = (e) => {
@@ -8,7 +7,6 @@ function AddressDetails({ handleChange, values, nextStep }) {
   };
   return (
     <div className="m-auto lg:ml-80">
-
       <section className="py-8 md:py-8 bg-white">
         <div className="container px-4 mx-auto">
           <div className="max-w-sm mx-auto">
@@ -30,7 +28,7 @@ function AddressDetails({ handleChange, values, nextStep }) {
                   type="name"
                   placeholder="Patryk"
                   defaultValue={values.name}
-                  onChange={handleChange.bind("name")}
+                  onChange={handleChange("name")}
                 />
               </div>
               <div className="mb-6">
@@ -45,7 +43,7 @@ function AddressDetails({ handleChange, values, nextStep }) {
                   type="name"
                   placeholder="Lemuria"
                   defaultValue={values.address}
-                  onChange={handleChange.bind("address")}
+                  onChange={handleChange("address")}
                 />
               </div>
 
