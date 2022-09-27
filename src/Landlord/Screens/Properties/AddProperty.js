@@ -20,9 +20,12 @@ export default class AddProperty extends Component {
       zipcode: "",
       type: "",
       specifictype: "",
-      formValues: [{ numUnits:"",rent:"",square_feet:"",beds:""}],
+      formValues: [{ number_of_units:"",market_rent:"",beds:"",square_feet:"",unit_type:""}],
     };
+    this.ids = this.state.propertyID;
+    
   }
+  
   getandSend = () => {
     const headers = {
       "Content-Type": "application/json",
@@ -31,24 +34,7 @@ export default class AddProperty extends Component {
     };
     axios.post(
       "http://127.0.0.1:8000/property/api/v1/addProperty/residential/",
-      [
-        {
-          unit_type: "two",
-          market_rent: this.state.formValues.rent,
-          beds: 12,
-          square_feet: 12121,
-          number_of_units: 1212,
-          property: this.state.propertyID,
-        },
-        {
-          unit_type: "three",
-          market_rent: 21212322,
-          beds: 12323,
-          square_feet: 121213223,
-          number_of_units: 1212323,
-          property: this.state.propertyID,
-        },
-      ],
+      this.state.formValues,
       { headers: headers }
     );
   };
@@ -99,7 +85,7 @@ export default class AddProperty extends Component {
     this.setState({
       formValues: [
         ...this.state.formValues,
-        { beds: 0, rent: 0, numUnits: 0, squarefeet: 0 },
+        { number_of_units:"",market_rent:"",beds:"",square_feet:"",unit_type:""},
       ],
     });
   }

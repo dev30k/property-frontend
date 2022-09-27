@@ -1,6 +1,6 @@
 import React from "react";
 
-function AddressDetails({ handleChange, values, nextStep }) {
+function AddressDetails({ handleInputChange, values, nextStep }) {
   const Continue = (e) => {
     e.preventDefault();
     nextStep();
@@ -26,9 +26,10 @@ function AddressDetails({ handleChange, values, nextStep }) {
                 <input
                   className="appearance-none block w-full p-3 leading-5 text-coolGray-900 border border-coolGray-200 rounded-lg shadow-md placeholder-coolGray-400 focus:outline-none focus:ring-2 focus:ring-color-main focus:ring-opacity-50"
                   type="name"
+                  name="name"
                   placeholder="Patryk"
                   defaultValue={values.name}
-                  onChange={handleChange("name")}
+                  onChange={(e) => handleInputChange(e, 'name')}
                 />
               </div>
               <div className="mb-6">
@@ -41,9 +42,10 @@ function AddressDetails({ handleChange, values, nextStep }) {
                 <input
                   className="appearance-none block w-full p-3 leading-5 text-coolGray-900 border border-coolGray-200 rounded-lg shadow-md placeholder-coolGray-400 focus:outline-none focus:ring-2 focus:ring-color-main focus:ring-opacity-50"
                   type="name"
+                  name="address"
                   placeholder="Lemuria"
                   defaultValue={values.address}
-                  onChange={handleChange("address")}
+                  onChange={(e) => handleInputChange(e, 'address')}
                 />
               </div>
 
@@ -60,7 +62,7 @@ function AddressDetails({ handleChange, values, nextStep }) {
                   type="name"
                   placeholder="Nairobi"
                   defaultValue={values.city}
-                  onChange={handleChange("city")}
+                  onChange={(e) => handleInputChange(e, 'city')}
                 />
               </div>
               <div className="mb-4">
@@ -75,7 +77,7 @@ function AddressDetails({ handleChange, values, nextStep }) {
                   type="name"
                   placeholder="Nairobi"
                   defaultValue={values.county}
-                  onChange={handleChange("county")}
+                  onChange={(e) => handleInputChange(e, 'county')}
                 />
               </div>
               <div className="mb-4">
@@ -90,7 +92,7 @@ function AddressDetails({ handleChange, values, nextStep }) {
                   type="number"
                   placeholder="00000"
                   defaultValue={values.zipcode}
-                  onChange={handleChange("zipcode")}
+                  onChange={(e) => handleInputChange(e, 'zipcode')}
                 />
               </div>
 
