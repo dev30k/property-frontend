@@ -34,11 +34,11 @@ function AddressVerification({ handleChange, values, prevStep, nextStep }) {
 
 
                     defaultValue={values.type}
-                    onChange={handleChange.bind("type")}
+                    onChange={handleChange("type")}
 
                 ><option selected>Select Type</option>
-                  <option value="0">Residential</option>
-                  <option value="1">Commercial</option>
+                  <option value="R">Residential</option>
+                  <option value="C">Commercial</option>
 
                 </select>
 

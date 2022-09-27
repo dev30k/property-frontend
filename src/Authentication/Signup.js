@@ -1,7 +1,7 @@
 import React, { useRef, useContext, useState } from "react";
 import { useNavigate } from 'react-router-dom'
 import { Link } from "react-router-dom";
-
+import axios from 'axios';
 import AuthContext from "../context/auth-context";
 
 const Signup = () => {
@@ -16,7 +16,6 @@ const Signup = () => {
     const passwordConfirmRef = useRef();
 
     const navigate = useNavigate();
-
     const submitHandler = (event) => {
         event.preventDefault();
         const enteredFirstName = firstNameRef.current.value;
@@ -46,10 +45,11 @@ const Signup = () => {
                 }
             }
         ).then((res) => {
-            console.log(res);
+            console.log("THe response is",res);
             setIsLoading(false);
             if (res.ok) {
                 return res.json();
+                
             } else {
                 return res.json.then((data) => {
                     let errorMessage = 'Authentication failed!';

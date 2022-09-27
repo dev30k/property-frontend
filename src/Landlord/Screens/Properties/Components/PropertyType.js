@@ -1,18 +1,26 @@
-import React from 'react';
+import React from "react";
 
-function PropertyType({values,add,remove,handleChange,prevStep,nextStep}) {
-    const Continue = (e) => {
-        e.preventDefault();
-        nextStep();
-    };
+function PropertyType({
+  values,
+  add,
+  remove,
+  handleChange,
+  prevStep,
+  nextStep,
+  handleSubmit,
+}) {
+  const Continue = (e) => {
+    e.preventDefault();
+    nextStep();
+  };
 
-    const Back = (e) => {
-        e.preventDefault();
-        prevStep();
-    };
+  const Back = (e) => {
+    e.preventDefault();
+    prevStep();
+  };
 
-    return (
-        <div className="m-auto lg:ml-80">
+  return (
+    <div className="m-auto lg:ml-80">
             <section className="py-8 md:py-8 bg-white">
                 <div className="container px-4 mx-auto">
                     <div className="mx-auto">
@@ -21,9 +29,9 @@ function PropertyType({values,add,remove,handleChange,prevStep,nextStep}) {
                                 Add Property types you have
                             </h3>
                         </div>
-                        <form action="">
-                            {values.formValues.slice(0,5).map((element, index) => (
-                            <div className="w-full md:w-9/12 flex mx-auto">
+                        <form action="" onSubmit={handleSubmit}>
+                            {values.slice(0,5).map((element, index) => (
+                            <div className="w-full md:w-9/12 flex mx-auto" key={index}>
                                 <div className="mb-6 mr-3">
                                     <label
                                         className="block mb-2 text-coolGray-800"
@@ -31,7 +39,7 @@ function PropertyType({values,add,remove,handleChange,prevStep,nextStep}) {
                                     >
                                         Beds
                                     </label>
-                                    <select defaultValue={element.beds} onChange={e => handleChange(index, e)} className="block w-full p-3 leading-5 text-coolGray-900 border border-coolGray-200 rounded-lg shadow-md placeholder-coolGray-400 focus:outline-none focus:ring-2 focus:ring-color-main focus:ring-opacity-50 bg-white" aria-label="Default select example">
+                                    <select defaultValue={element.beds || ""} name="beds" onChange={e => handleChange(index, e)} className="block w-full p-3 leading-5 text-coolGray-900 border border-coolGray-200 rounded-lg shadow-md placeholder-coolGray-400 focus:outline-none focus:ring-2 focus:ring-color-main focus:ring-opacity-50 bg-white" aria-label="Default select example">
                                         <option selected>Select bedrooms</option>
                                         <option value="0">Studio</option>
                                         <option value="1">One</option>
@@ -47,8 +55,9 @@ function PropertyType({values,add,remove,handleChange,prevStep,nextStep}) {
                                     >
                                         Number of units
                                     </label>
-                                    <input
-                                        defaultValue={element.numUnits}
+                                    <input 
+                                        name="numUnits"
+                                        defaultValue={element.numUnits || ""}
                                         onChange={e => handleChange(index, e)}
                                         className="appearance-none block w-full p-3 leading-5 text-coolGray-900 border border-coolGray-200 rounded-lg shadow-md placeholder-coolGray-400 focus:outline-none focus:ring-2 focus:ring-color-main focus:ring-opacity-50"
                                         type="number"
@@ -63,7 +72,8 @@ function PropertyType({values,add,remove,handleChange,prevStep,nextStep}) {
                                         Squarefeet
                                     </label>
                                     <input
-                                        defaultValue={element.squarefeet}
+                                        name="square_feet"
+                                        defaultValue={element.square_feet || ""}
                                         onChange={e => handleChange(index, e)}
                                         className="appearance-none block w-full p-3 leading-5 text-coolGray-900 border border-coolGray-200 rounded-lg shadow-md placeholder-coolGray-400 focus:outline-none focus:ring-2 focus:ring-color-main focus:ring-opacity-50"
                                         type="number"
@@ -78,7 +88,8 @@ function PropertyType({values,add,remove,handleChange,prevStep,nextStep}) {
                                         Rent
                                     </label>
                                     <input
-                                        defaultValue={element.rent}
+                                        name="rent"
+                                        defaultValue={element.rent || ""}
                                         onChange={e => handleChange(index, e)}
                                         className="appearance-none block w-full p-3 leading-5 text-coolGray-900 border border-coolGray-200 rounded-lg shadow-md placeholder-coolGray-400 focus:outline-none focus:ring-2 focus:ring-color-main focus:ring-opacity-50"
                                         type="number"
@@ -132,8 +143,8 @@ function PropertyType({values,add,remove,handleChange,prevStep,nextStep}) {
 
 
         </div>
-
-    );
+    
+  );
 }
 
 export default PropertyType;
