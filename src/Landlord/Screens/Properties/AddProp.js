@@ -69,6 +69,7 @@ export default function AddProp() {
         { headers: headers }
       )
       setPropertyID(response.data.property);
+    formValues.pop(0);
       if(response.status == 200){        
         setStep(step + 1 );
       }else{
