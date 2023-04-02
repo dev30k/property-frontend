@@ -28,7 +28,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route element={<PrivateRoutes />}>
+        
           <Route element={<NavbarLayout />}>
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/properties" element={<Properties />} />
@@ -43,7 +43,7 @@ function App() {
             <Route path="/notifications" element={<Notifications />} />
             <Route path="/maintenance" element={<Maintenance />} />
             <Route path="/cloud-documents" element={<Document />} />
-          </Route>
+          
         </Route>
       </Routes>
     </Router>
